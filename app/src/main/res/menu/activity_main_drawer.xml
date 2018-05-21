@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_daftar_group"
+            android:icon="@drawable/ic_group_add_black_24dp"
+            android:title="Daftar Group" />
+        <item
+            android:id="@+id/nav_grafik"
+            android:icon="@drawable/ic_show_chart_black_24dp"
+            android:title="Grafik" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_profil"
+                android:icon="@drawable/ic_profil"
+                android:title="Profil Saya" />
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_about"
+                android:title="About Us" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="Keluar" />
+
+        </menu>
+    </item>
+
+</menu>

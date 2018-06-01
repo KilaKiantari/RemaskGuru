@@ -1,4 +1,4 @@
-package com.example.asus_desktop.remaskguru;
+package com.example.asus_desktop.remaskguru.Model;
 
 /**
  * Created by Asus-Desktop on 5/11/2018.
@@ -6,7 +6,10 @@ package com.example.asus_desktop.remaskguru;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.example.asus_desktop.remaskguru.Login;
 
 public class SessionManager {
     private static String TAG = SessionManager.class.getSimpleName();
@@ -26,7 +29,11 @@ public class SessionManager {
     private static final String KEY_IS_UID = "uid";
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
     private static final String KEY_IS_USERTYPE = "usertype";
+    private static final String KEY_IS_NAMAGURU = "nama_guru";
+    private static final String KEY_IS_SEKOLAH = "sekolah";
+    private static final String KEY_IS_MATPEL = "nama_matpel";
     private static final String KEY_IS_USERNAME = "username";
+    private static final String KEY_IS_EMAIL = "email";
     private static final String KEY_IS_CURRENT_LOC= "current_loc";
     private static final String KEY_IS_LOCATION_NAME= "location_name";
     //private static final String KEY_IS_checkinID= "checkin_id";
@@ -60,6 +67,26 @@ public class SessionManager {
         editor.commit();
     }
 
+    public void setEmail(String email){
+        editor.putString(KEY_IS_EMAIL, email);
+        editor.commit();
+    }
+
+    public void setNamaGuru(String namaGuru){
+        editor.putString(KEY_IS_NAMAGURU, namaGuru);
+        editor.commit();
+    }
+
+    public void setNamaMatpel(String namaMatpel){
+        editor.putString(KEY_IS_MATPEL, namaMatpel);
+        editor.commit();
+    }
+
+    public void setSekolah(String sekolah){
+        editor.putString(KEY_IS_SEKOLAH, sekolah);
+        editor.commit();
+    }
+
     public void setLoc(String location){
         editor.putString(KEY_IS_CURRENT_LOC, location);
         editor.commit();
@@ -85,6 +112,18 @@ public class SessionManager {
         editor.putString(FBASE_TOKEN, token);
         editor.commit();
     }
+
+    public void logoutUser(){
+        // Clearing all data from Shared Preferences
+        editor.clear();
+        editor.commit();
+
+        Intent i = new Intent(_context, Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        _context.startActivity(i);
+    }
+
 
     /*public int getCheckin(){
         return pref.getInt(KEY_IS_CHECKIN,0);
@@ -113,6 +152,26 @@ public class SessionManager {
     public String getUserType(){
         return pref.getString(KEY_IS_USERTYPE,null);
     }
+
+    public String getEmail(){
+        return pref.getString(KEY_IS_EMAIL,null);
+    }
+
+    public String getNamaGuru(){
+        return pref.getString(KEY_IS_NAMAGURU,null);
+    }
+
+    public String getNamaMatpel(){
+        return pref.getString(KEY_IS_MATPEL,null);
+    }
+
+    public String getSekolah(){
+        return pref.getString(KEY_IS_SEKOLAH,null);
+    }
+
+
+
+
 
     public String getLoc(){
         return pref.getString(KEY_IS_CURRENT_LOC,null);

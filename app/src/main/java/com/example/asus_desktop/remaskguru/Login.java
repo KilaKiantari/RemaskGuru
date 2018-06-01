@@ -11,12 +11,21 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.asus_desktop.remaskguru.Api.ApiClient;
+import com.example.asus_desktop.remaskguru.Model.ModelLoginUser;
+import com.example.asus_desktop.remaskguru.Model.SessionManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 //import android.view.WindowManager;
@@ -29,7 +38,7 @@ public class Login extends AppCompatActivity {
 
     //public static ApiInterface apiInterface;
 
-    //private ModelLoginUser modelLogin;
+    private ModelLoginUser modelLogin;
     private EditText inputEmail, inputPassword;
     private ProgressBar progressBar;
     private Button btnLogin ;
@@ -102,16 +111,54 @@ public class Login extends AppCompatActivity {
                                             progressDialog.setMessage("Please wait...");
                                             progressDialog.show();
 
-            txtViewSingUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Login.this, Register.class);
-                    startActivity(intent);
-                    finish();
-                }
-            });
+                                            ApiClient.services_post.login(inputEmail.getText().toString(),inputPassword.getText().toString() ).enqueue(new Callback<ModelLoginUser>() {
+                                                @Override
+                                                public void onResponse(Call<ModelLoginUser> call, Response<ModelLoginUser> response) {
+                                                    modelLogin = response.body();
+                                                    //if (modelLogin != null) {
+                                                        //sessionManager.setUid(modelLogin.getResult().getId());
+                                                        //sessionManager.setLogin(true);
+                                                        //sessionManager.setUsername(modelLogin.getResult().getUsername());
+
+                                                        edit.putString("username", modelLogin.getResult().getUsername());
+                                                        edit.putString("guru_id", String.valueOf(modelLogin.getResult().getGuruId()));
+                                                        edit.commit();
+
+                                                        Log.d("username", modelLogin.getResult().getUsername());
+                                                        Log.d("guru_id", String.valueOf(modelLogin.getResult().getSiswaId()));
+
+                                                        String guru_id = sharedPreferences.getString("guru_id","");
+
+                                                    Toast.makeText(Login.this, ""+guru_id, Toast.LENGTH_SHORT).show();
+
+                                                        Intent intent = new Intent(Login.this, MainActivity.class);
+                                                        startActivity(intent);
+                                                   // }else {
+                                                        Toast.makeText(Login.this, "Akun belum terdaftar", Toast.LENGTH_SHORT).show();
+                                                   // }
+
+                                                    progressDialog.dismiss();
+
+                                                }
+
+                                                public void onFailure(Call<ModelLoginUser> call, Throwable t) {
+                                                    Toast.makeText(Login.this, "Password dan Username salah", Toast.LENGTH_SHORT).show();
+                                                    progressDialog.dismiss();
+                                                }
+
+                                            });
+
+
         }
     });
+        txtViewSingUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         }

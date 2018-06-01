@@ -16,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.asus_desktop.remaskguru.Model.SessionManager;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     FragmentManager fragmentManager;
     Fragment fragment = null;
-    private SessionManager sessionManager;
+    private SessionManager session;
     private ProgressDialog progressDialog;
     CollapsingToolbarLayout collapsingToolbar;
 
@@ -119,8 +121,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new Tools();
             callFragment(fragment);}
         else if (id == R.id.nav_logout) {
-            sessionManager = new SessionManager(getApplicationContext());
-            sessionManager.setLogin(false);
+            session = new SessionManager(getApplicationContext());
+            session.logoutUser();
+            finish();
         }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

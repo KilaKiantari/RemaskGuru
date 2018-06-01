@@ -22,7 +22,7 @@ public class Profil extends Fragment {
 
         view = (RelativeLayout) inflater.inflate(R.layout.slide_show, container, false);
 
-        getActivity().setTitle("Grafik Kerajinan");
+        getActivity().setTitle("Profil");
 
         return view;
     }

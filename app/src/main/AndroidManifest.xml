@@ -19,6 +19,9 @@
         </activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Register"></activity>
+        <activity android:name=".BuatGroup"></activity>
+        <activity android:name=".RegisterNext"></activity>
+
     </application>
 
 </manifest>

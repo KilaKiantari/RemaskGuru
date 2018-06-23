@@ -56,9 +56,6 @@
         </android.support.design.widget.TextInputLayout>
 
 
-
-
-
         <!-- Signup Button -->
         <Button
             android:id="@+id/btn_register"

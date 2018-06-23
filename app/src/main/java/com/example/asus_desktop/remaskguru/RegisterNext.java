@@ -97,9 +97,9 @@ public class RegisterNext extends AppCompatActivity {
                                 if(response.isSuccessful()) {
                                     response.body();
                                     Toast.makeText(RegisterNext.this, ""+response.body().getStatus(), Toast.LENGTH_SHORT).show();
-//                                Intent intent = new Intent(RegisterNext.this, Login.class);
-//                                startActivity(intent);
-//                                finish();
+                                Intent intent = new Intent(RegisterNext.this, Login.class);
+                                startActivity(intent);
+                                finish();
                                     progressDialog.dismiss();
                                     //return true;
                                 }

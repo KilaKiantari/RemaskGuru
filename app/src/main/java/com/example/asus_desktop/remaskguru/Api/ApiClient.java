@@ -19,7 +19,7 @@ import retrofit2.http.Query;
 
 
 public class ApiClient {
-    public static final String BASE_URL = "http://192.168.43.107/Remask/belakang/api/";
+    public static final String BASE_URL = "http://kila.jagopesan.com/Remask/belakang/api/";
 
     public static PostServices services_post = new Retrofit.Builder()
             .baseUrl(BASE_URL)

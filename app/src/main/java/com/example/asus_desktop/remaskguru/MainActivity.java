@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.asus_desktop.remaskguru.DaftarGroup.Daftar_Group;
 import com.example.asus_desktop.remaskguru.Model.SessionManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -110,10 +111,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_daftar_group) {
             fragment = new Daftar_Group();
             callFragment(fragment);
-        } else if (id == R.id.nav_grafik) {
-            fragment = new Grafik();
+        }else if ( id == R.id.nav_grafik){
+            fragment = new JoinSiswaGrup();
             callFragment(fragment);
-        } else if (id == R.id.nav_profil) {
+        }
+        else if (id == R.id.nav_profil) {
             fragment = new Profil();
             callFragment(fragment);
         }

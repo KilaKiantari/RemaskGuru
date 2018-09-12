@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RemaskGuru</string>
+    <string name="app_name">Remask Guru</string>
 
     <string name="openDrawer">Drawer dibuka</string>
     <string name="closeDrawer">Drawer ditutup</string>
@@ -38,6 +38,33 @@
         <item>3 jam sebelum</item>
         <item>30 menit sebelum</item>
 
+    </string-array>
+
+    <string-array name="Member_names">
+        <item>Tugas PKN </item>
+        <item>Tugas PKN </item>
+        <item>Tugas PKN </item>
+
+    </string-array>
+
+    <string-array name="profile_pics">
+        <item>@drawable/ic_setting </item>
+        <item>@drawable/ic_setting </item>
+        <item>@drawable/ic_setting </item>
+
+    </string-array>
+
+    <string-array name="statues">
+        <item>Tugas </item>
+        <item>Tugas </item>
+        <item>Tugas </item>
+
+    </string-array>
+
+    <string-array name="contactType">
+        <item>Tugas </item>
+        <item>Tugas </item>
+        <item>Tugas </item>
     </string-array>
 
     <string name="hello_world">Hello world!</string>

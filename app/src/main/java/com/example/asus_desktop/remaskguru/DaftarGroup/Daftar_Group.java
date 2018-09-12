@@ -1,4 +1,4 @@
-package com.example.asus_desktop.remaskguru;
+package com.example.asus_desktop.remaskguru.DaftarGroup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,7 +16,9 @@ import android.widget.CalendarView;
 import android.widget.Toast;
 
 import com.example.asus_desktop.remaskguru.Api.ApiClient;
+import com.example.asus_desktop.remaskguru.BuatGroup;
 import com.example.asus_desktop.remaskguru.Model.ModelDaftarGroup;
+import com.example.asus_desktop.remaskguru.R;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -101,8 +103,6 @@ public class Daftar_Group extends Fragment {
             @Override
             public void onResponse(Call<ModelDaftarGroup> call, Response<ModelDaftarGroup> response) {
                 modelDaftarGroup = response.body();
-
-//                adapter = new JoinGroupAdapter(this,modelGroupAll.getResults());
                 adapter = new DaftarAdapter(getActivity(),modelDaftarGroup.getResults());
                 adapter.notifyDataSetChanged();
                 recyclerView.setAdapter(adapter);
@@ -121,15 +121,6 @@ public class Daftar_Group extends Fragment {
     }
 
 }
-/*
-    void addData(){
-        mahasiswaArrayList = new ArrayList<>();
-        mahasiswaArrayList.add(new Mahasiswa("Dimas Maulana", "1414370309"));
-        mahasiswaArrayList.add(new Mahasiswa("Fadly Yonk", "1214234560"));
-        mahasiswaArrayList.add(new Mahasiswa("Ariyandi Nugraha", "1214230345"));
-        mahasiswaArrayList.add(new Mahasiswa("Aham Siswana", "1214378098"));
-    }
-    */
 
 
 

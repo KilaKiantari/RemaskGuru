@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -58,6 +59,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         sharedPreferences = getSharedPreferences("Remask", MODE_PRIVATE);
         edit =sharedPreferences.edit();
         edit.clear();
@@ -115,10 +117,10 @@ public class Login extends AppCompatActivity {
                                                 @Override
                                                 public void onResponse(Call<ModelLoginUser> call, Response<ModelLoginUser> response) {
                                                     modelLogin = response.body();
-                                                    //if (modelLogin != null) {
-                                                        //sessionManager.setUid(modelLogin.getResult().getId());
-                                                        //sessionManager.setLogin(true);
-                                                        //sessionManager.setUsername(modelLogin.getResult().getUsername());
+                                                    if (modelLogin != null) {
+//                                                        sessionManager.setUid(modelLogin.getResult().getId());
+//                                                        sessionManager.setLogin(true);
+//                                                        sessionManager.setUsername(modelLogin.getResult().getUsername());
 
                                                         edit.putString("username", modelLogin.getResult().getUsername());
                                                         edit.putString("guru_id", String.valueOf(modelLogin.getResult().getGuruId()));
@@ -127,18 +129,19 @@ public class Login extends AppCompatActivity {
                                                         Log.d("username", modelLogin.getResult().getUsername());
                                                         Log.d("guru_id", String.valueOf(modelLogin.getResult().getSiswaId()));
 
-                                                        String guru_id = sharedPreferences.getString("guru_id","");
+                                                        String guru_id = sharedPreferences.getString("guru_id", "");
 
-                                                    Toast.makeText(Login.this, ""+guru_id, Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(Login.this, "" + guru_id, Toast.LENGTH_SHORT).show();
 
                                                         Intent intent = new Intent(Login.this, MainActivity.class);
                                                         startActivity(intent);
-                                                   // }else {
+                                                    } else if (modelLogin == null) {
                                                         Toast.makeText(Login.this, "Akun belum terdaftar", Toast.LENGTH_SHORT).show();
-                                                   // }
+                                                        // }
 
-                                                    progressDialog.dismiss();
+                                                        progressDialog.dismiss();
 
+                                                    }
                                                 }
 
                                                 public void onFailure(Call<ModelLoginUser> call, Throwable t) {

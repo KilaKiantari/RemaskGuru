@@ -38,7 +38,7 @@ public class Result {
     private Object orangtuaId;
     @SerializedName("siswa_id")
     @Expose
-    private Object siswaId;
+    private String siswaId;
     @SerializedName("email")
     @Expose
     private String email;
@@ -66,12 +66,62 @@ public class Result {
     @SerializedName("nama_matpel")
     @Expose
     private String namaMatpel;
+    @SerializedName("nama_lengkap")
+    @Expose
+    private String namaLengkap;
     @SerializedName("namagroup")
     @Expose
     private String namagroup;
+    @SerializedName("nama_tugas")
+    @Expose
+    private String namaTugas;
+    @SerializedName("status_tugas")
+    @Expose
+    private String statusTugas;
+    @SerializedName("id_tugas")
+    @Expose
+    private String idTugas;
+    @SerializedName("id_group")
+    @Expose
+    private String idgroup;
+
+    public String getIdGroup() {
+        return idgroup;
+    }
 
 
+    public String getIdTugas() {
+        return idTugas;
+    }
 
+    public void setIdTugas(String idTugas) {
+        this.idTugas = idTugas;
+    }
+
+
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
+
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
+    }
+
+
+    public String getStatusTugas() {
+        return statusTugas;
+    }
+    public void setNamaTugas(String nama_tugas) {
+        this.namaTugas = nama_tugas;
+    }
+
+    public String getNamaTugas() {
+        return namaTugas;
+    }
+
+    public String getNamalengkap() {
+        return namaLengkap;
+    }
 
     public String getNamagroup() {
         return namagroup;
@@ -185,11 +235,11 @@ public class Result {
         this.orangtuaId = orangtuaId;
     }
 
-    public Object getSiswaId() {
+    public String getSiswaId() {
         return siswaId;
     }
 
-    public void setSiswaId(Object siswaId) {
+    public void setSiswaId(String siswaId) {
         this.siswaId = siswaId;
     }
 

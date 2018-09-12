@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_grafik"
             android:icon="@drawable/ic_show_chart_black_24dp"
-            android:title="Grafik" />
+            android:title="Daftar Siswa" />
 
     </group>
 

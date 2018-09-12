@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.asus_desktop.remaskguru.DaftarGroup.Daftar_Group;
+
 /**
  * Created by Asus-Desktop on 6/21/2018.
  */
@@ -46,7 +48,7 @@ public class Root extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Fragment fragment = new Daftar_Group();
+                Fragment fragment = new JoinSiswaGrup();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container,fragment);

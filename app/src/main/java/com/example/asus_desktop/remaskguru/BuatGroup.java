@@ -46,6 +46,7 @@ public class BuatGroup extends AppCompatActivity {
     Spinner mSpinner;
     TimePicker pickerTime;
     TextView time;
+    private String guru_id;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor edit;
 
@@ -54,7 +55,8 @@ public class BuatGroup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buat_group);
-        sharedPreferences = getSharedPreferences("RemaskGuru", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("Remask", MODE_PRIVATE);
+        guru_id = sharedPreferences.getString("guru_id","");
         edit =sharedPreferences.edit();
 
 
@@ -75,7 +77,7 @@ public class BuatGroup extends AppCompatActivity {
         mNamaGuru = (EditText) findViewById(R.id.txtnamaguru);
         mNamaMatpel = (EditText) findViewById(R.id.txtmatpel);
 
-        ApiClient.services_get_buat.getBuat(1).enqueue(new Callback<ModelBuatGroup>() {
+        ApiClient.services_get_buat.getBuat(guru_id).enqueue(new Callback<ModelBuatGroup>() {
             @Override
             public void onResponse(Call<ModelBuatGroup> call, Response<ModelBuatGroup> response) {
                 modelBuatGroup = response.body();
@@ -130,7 +132,7 @@ public class BuatGroup extends AppCompatActivity {
                 Log.d("nama_matpel",mNamaMatpel.getText().toString());
 
                 ApiClient.services_post.creategroup(
-                        "1",
+                        guru_id,
                         mTitleText.getText().toString()).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {

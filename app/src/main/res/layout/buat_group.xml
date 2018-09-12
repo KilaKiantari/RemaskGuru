@@ -77,15 +77,15 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtnamaguru"
                     android:maxLength="25"
-                    android:drawableLeft="@drawable/ic_person_black_24dp"
+                    android:drawableLeft="@drawable/ic_profil"
                     android:drawablePadding="5dp"
-                    android:drawableStart="@drawable/ic_person_black_24dp"
+                    android:drawableStart="@drawable/ic_profil"
                     android:hint="@string/title_hint"
                     android:layout_below="@+id/btnBack"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:singleLine="true"
-                    android:editable="true" />
+                    android:editable="false" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -93,16 +93,20 @@
                     android:text="Nama Matpel"
                     android:textStyle="bold"
                     android:textColor="#000"/>
-
-                    <EditText
-                        android:id="@+id/txtmatpel"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Input your country"
-                        android:padding="10dp"
-                        android:inputType="none"
-                        android:editable="true"
-                        />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtmatpel"
+                    android:maxLength="25"
+                    android:drawableLeft="@drawable/ic_description_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_description_black_24dp"
+                    android:hint="@string/title_hint"
+                    android:layout_below="@+id/btnBack"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:singleLine="true"
+                    android:editable="false" />
 
                 <GridLayout
                     android:layout_width="fill_parent"

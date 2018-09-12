@@ -18,10 +18,8 @@ public class Tools extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        view = (RelativeLayout) inflater.inflate(R.layout.slide_show, container, false);
-
-        getActivity().setTitle("Help");
+        View view = inflater.inflate(R.layout.tools, container, false);
+        getActivity().setTitle("Tentang");
 
         return view;
     }
